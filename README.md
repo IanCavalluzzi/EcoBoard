@@ -1,161 +1,317 @@
-# just-the-docs-template
+# EcoBoard
 
-This is a *bare-minimum* template to create a [Jekyll] site that:
+Test1
 
-- uses the [Just the Docs] theme;
-- can be built and published on [GitHub Pages];
-- can be built and previewed locally, and published on other platforms.
+# Markdown: Syntax
 
-More specifically, the created site:
+*   [Overview](#overview)
+    *   [Philosophy](#philosophy)
+    *   [Inline HTML](#html)
+    *   [Automatic Escaping for Special Characters](#autoescape)
+*   [Block Elements](#block)
+    *   [Paragraphs and Line Breaks](#p)
+    *   [Headers](#header)
+    *   [Blockquotes](#blockquote)
+    *   [Lists](#list)
+    *   [Code Blocks](#precode)
+    *   [Horizontal Rules](#hr)
+*   [Span Elements](#span)
+    *   [Links](#link)
+    *   [Emphasis](#em)
+    *   [Code](#code)
+    *   [Images](#img)
+*   [Miscellaneous](#misc)
+    *   [Backslash Escapes](#backslash)
+    *   [Automatic Links](#autolink)
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem;
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages.
 
-To get started with creating a site, simply:
+**Note:** This document is itself written using Markdown; you
+can [see the source for it by adding '.text' to the URL](/projects/markdown/syntax.text).
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
+----
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](#hosting-your-docs-from-an-existing-project-repo).
+## Overview
 
-After completing the creation of your new site on GitHub, update it as needed:
+### Philosophy
 
-## Replace the content of the template pages
+Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
 
-Update the following files to your own content:
+Readability, however, is emphasized above all else. A Markdown-formatted
+document should be publishable as-is, as plain text, without looking
+like it's been marked up with tags or formatting instructions. While
+Markdown's syntax has been influenced by several existing text-to-HTML
+filters -- including [Setext](http://docutils.sourceforge.net/mirror/setext.html), [atx](http://www.aaronsw.com/2002/atx/), [Textile](http://textism.com/tools/textile/), [reStructuredText](http://docutils.sourceforge.net/rst.html),
+[Grutatext](http://www.triptico.com/software/grutatxt.html), and [EtText](http://ettext.taint.org/doc/) -- the single biggest source of
+inspiration for Markdown's syntax is the format of plain text email.
 
-- `index.md` (your new home page)
-- `README.md` (information for those who access your site repo on GitHub)
+## Block Elements
 
-## Changing the version of the theme and/or Jekyll
+### Paragraphs and Line Breaks
 
-Simply edit the relevant line(s) in the `Gemfile`.
+A paragraph is simply one or more consecutive lines of text, separated
+by one or more blank lines. (A blank line is any line that looks like a
+blank line -- a line containing nothing but spaces or tabs is considered
+blank.) Normal paragraphs should not be indented with spaces or tabs.
 
-## Adding a plugin
+The implication of the "one or more consecutive lines of text" rule is
+that Markdown supports "hard-wrapped" text paragraphs. This differs
+significantly from most other text-to-HTML formatters (including Movable
+Type's "Convert Line Breaks" option) which translate every line break
+character in a paragraph into a `<br />` tag.
 
-The Just the Docs theme automatically includes the [`jekyll-seo-tag`] plugin.
+When you *do* want to insert a `<br />` break tag using Markdown, you
+end a line with two or more spaces, then type return.
 
-To add an extra plugin, you need to add it in the `Gemfile` *and* in `_config.yml`. For example, to add [`jekyll-default-layout`]:
+### Headers
 
-- Add the following to your site's `Gemfile`:
+Markdown supports two styles of headers, [Setext] [1] and [atx] [2].
 
-  ```ruby
-  gem "jekyll-default-layout"
-  ```
+Optionally, you may "close" atx-style headers. This is purely
+cosmetic -- you can use this if you think it looks better. The
+closing hashes don't even need to match the number of hashes
+used to open the header. (The number of opening hashes
+determines the header level.)
 
-- And add the following to your site's `_config.yml`:
 
-  ```yaml
-  plugins:
-    - jekyll-default-layout
-  ```
+### Blockquotes
 
-Note: If you are using a Jekyll version less than 3.5.0, use the `gems` key instead of `plugins`.
+Markdown uses email-style `>` characters for blockquoting. If you're
+familiar with quoting passages of text in an email message, then you
+know how to create a blockquote in Markdown. It looks best if you hard
+wrap the text and put a `>` before every line:
 
-## Publishing your site on GitHub Pages
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+> 
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+> id sem consectetuer libero luctus adipiscing.
 
-1.  If your created site is `YOUR-USERNAME/YOUR-SITE-NAME`, update `_config.yml` to:
+Markdown allows you to be lazy and only put the `>` before the first
+line of a hard-wrapped paragraph:
 
-    ```yaml
-    title: YOUR TITLE
-    description: YOUR DESCRIPTION
-    theme: just-the-docs
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
 
-    url: https://YOUR-USERNAME.github.io/YOUR-SITE-NAME
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
 
-    aux_links: # remove if you don't want this link to appear on your pages
-      Template Repository: https://github.com/YOUR-USERNAME/YOUR-SITE-NAME
-    ```
+Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by
+adding additional levels of `>`:
 
-2.  Push your updated `_config.yml` to your site on GitHub.
+> This is the first level of quoting.
+>
+> > This is nested blockquote.
+>
+> Back to the first level.
 
-3.  In your newly created repo on GitHub:
-    - go to the `Settings` tab -> `Pages` -> `Build and deployment`, then select `Source`: `GitHub Actions`.
-    - if there were any failed Actions, go to the `Actions` tab and click on `Re-run jobs`.
+Blockquotes can contain other Markdown elements, including headers, lists,
+and code blocks:
 
-## Building and previewing your site locally
+> ## This is a header.
+> 
+> 1.   This is the first list item.
+> 2.   This is the second list item.
+> 
+> Here's some example code:
+> 
+>     return shell_exec("echo $input | $markdown_script");
 
-Assuming [Jekyll] and [Bundler] are installed on your computer:
+Any decent text editor should make email-style quoting easy. For
+example, with BBEdit, you can make a selection and choose Increase
+Quote Level from the Text menu.
 
-1.  Change your working directory to the root directory of your site.
 
-2.  Run `bundle install`.
+### Lists
 
-3.  Run `bundle exec jekyll serve` to build your site and preview it at `localhost:4000`.
+Markdown supports ordered (numbered) and unordered (bulleted) lists.
 
-    The built site is stored in the directory `_site`.
+Unordered lists use asterisks, pluses, and hyphens -- interchangably
+-- as list markers:
 
-## Publishing your built site on a different platform
+*   Red
+*   Green
+*   Blue
 
-Just upload all the files in the directory `_site`.
+is equivalent to:
 
-## Customization
++   Red
++   Green
++   Blue
 
-You're free to customize sites that you create with this template, however you like!
+and:
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+-   Red
+-   Green
+-   Blue
 
-## Hosting your docs from an existing project repo
+Ordered lists use numbers followed by periods:
 
-You might want to maintain your docs in an existing project repo. Instead of creating a new repo using the [just-the-docs template](https://github.com/just-the-docs/just-the-docs-template), you can copy the template files into your existing repo and configure the template's Github Actions workflow to build from a `docs` directory. You can clone the template to your local machine or download the `.zip` file to access the files.
+1.  Bird
+2.  McHale
+3.  Parish
 
-### Copy the template files
+It's important to note that the actual numbers you use to mark the
+list have no effect on the HTML output Markdown produces. The HTML
+Markdown produces from the above list is:
 
-1.  Create a `.github/workflows` directory at your project root if your repo doesn't already have one. Copy the `pages.yml` file into this directory. GitHub Actions searches this directory for workflow files.
+If you instead wrote the list in Markdown like this:
 
-2.  Create a `docs` directory at your project root and copy all remaining template files into this directory.
+1.  Bird
+1.  McHale
+1.  Parish
 
-### Modify the GitHub Actions workflow
+or even:
 
-The GitHub Actions workflow that builds and deploys your site to Github Pages is defined by the `pages.yml` file. You'll need to edit this file to that so that your build and deploy steps look to your `docs` directory, rather than the project root.
+3. Bird
+1. McHale
+8. Parish
 
-1.  Set the default `working-directory` param for the build job.
+you'd get the exact same HTML output. The point is, if you want to,
+you can use ordinal numbers in your ordered Markdown lists, so that
+the numbers in your source match the numbers in your published HTML.
+But if you want to be lazy, you don't have to.
 
-    ```yaml
-    build:
-      runs-on: ubuntu-latest
-      defaults:
-        run:
-          working-directory: docs
-    ```
+To make lists look nice, you can wrap items with hanging indents:
 
-2.  Set the `working-directory` param for the Setup Ruby step.
+*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+    Suspendisse id sem consectetuer libero luctus adipiscing.
 
-    ```yaml
-    - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1'
-          bundler-cache: true
-          cache-version: 0
-          working-directory: '${{ github.workspace }}/docs'
-    ```
+But if you want to be lazy, you don't have to:
 
-3.  Set the path param for the Upload artifact step:
+*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.
 
-    ```yaml
-    - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: "docs/_site/"
-    ```
+List items may consist of multiple paragraphs. Each subsequent
+paragraph in a list item must be indented by either 4 spaces
+or one tab:
 
-4.  Modify the trigger so that only changes within the `docs` directory start the workflow. Otherwise, every change to your project (even those that don't affect the docs) would trigger a new site build and deploy.
+1.  This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.
 
-    ```yaml
-    on:
-      push:
-        branches:
-          - "main"
-        paths:
-          - "docs/**"
-    ```
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+    sit amet velit.
 
-## Licensing and Attribution
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
 
-This repository is licensed under the [MIT License]. You are generally free to reuse or extend upon this code as you see fit; just include the original copy of the license (which is preserved when you "make a template"). While it's not necessary, we'd love to hear from you if you do use this template, and how we can improve it for future use!
+It looks nice if you indent every line of the subsequent
+paragraphs, but here again, Markdown will allow you to be
+lazy:
 
-The deployment GitHub Actions workflow is heavily based on GitHub's mixed-party [starter workflows]. A copy of their MIT License is available in [actions/starter-workflows].
+*   This is a list item with two paragraphs.
+
+    This is the second paragraph in the list item. You're
+only required to indent the first line. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.
+
+*   Another item in the same list.
+
+To put a blockquote within a list item, the blockquote's `>`
+delimiters need to be indented:
+
+*   A list item with a blockquote:
+
+    > This is a blockquote
+    > inside a list item.
+
+To put a code block within a list item, the code block needs
+to be indented *twice* -- 8 spaces or two tabs:
+
+*   A list item with a code block:
+
+        <code goes here>
+
+### Code Blocks
+
+Pre-formatted code blocks are used for writing about programming or
+markup source code. Rather than forming normal paragraphs, the lines
+of a code block are interpreted literally. Markdown wraps a code block
+in both `<pre>` and `<code>` tags.
+
+To produce a code block in Markdown, simply indent every line of the
+block by at least 4 spaces or 1 tab.
+
+This is a normal paragraph:
+
+    This is a code block.
+
+Here is an example of AppleScript:
+
+    tell application "Foo"
+        beep
+    end tell
+
+A code block continues until it reaches a line that is not indented
+(or the end of the article).
+
+Within a code block, ampersands (`&`) and angle brackets (`<` and `>`)
+are automatically converted into HTML entities. This makes it very
+easy to include example HTML source code using Markdown -- just paste
+it and indent it, and Markdown will handle the hassle of encoding the
+ampersands and angle brackets. For example, this:
+
+    <div class="footer">
+        &copy; 2004 Foo Corporation
+    </div>
+
+Regular Markdown syntax is not processed within code blocks. E.g.,
+asterisks are just literal asterisks within a code block. This means
+it's also easy to use Markdown to write about Markdown's own syntax.
+
+```
+tell application "Foo"
+    beep
+end tell
+```
+
+## Span Elements
+
+### Links
+
+Markdown supports two style of links: *inline* and *reference*.
+
+In both styles, the link text is delimited by [square brackets].
+
+To create an inline link, use a set of regular parentheses immediately
+after the link text's closing square bracket. Inside the parentheses,
+put the URL where you want the link to point, along with an *optional*
+title for the link, surrounded in quotes. For example:
+
+This is [an example](http://example.com/) inline link.
+
+[This link](http://example.net/) has no title attribute.
+
+### Emphasis
+
+Markdown treats asterisks (`*`) and underscores (`_`) as indicators of
+emphasis. Text wrapped with one `*` or `_` will be wrapped with an
+HTML `<em>` tag; double `*`'s or `_`'s will be wrapped with an HTML
+`<strong>` tag. E.g., this input:
+
+*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+
+### Code
+
+To indicate a span of code, wrap it with backtick quotes (`` ` ``).
+Unlike a pre-formatted code block, a code span indicates code within a
+normal paragraph. For example:
+
+Use the `printf()` function.
 
 ----
 
