@@ -1,5 +1,5 @@
 ---
-title: EcoBoard: Endless-Pulp, Endless Options
+title: EcoBoard:-Endless-Pulp,-Endless-Options
 layout: home
 ---
 
