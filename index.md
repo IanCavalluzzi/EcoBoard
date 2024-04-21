@@ -11,7 +11,7 @@ Apologies for any missing information or topics, the website is still in early d
 # Designing a Mold for Cardboard MDF with Wheat Paste
 
 *   [Overview](#overview)
-    *   [Why Wheat Paste?](#whywheatpaste?)
+    *   [Why Wheat Paste?](#why-wheat-paste)
     *   [XYZAiden](#xyzaiden)
 
 ----
