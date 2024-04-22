@@ -33,7 +33,7 @@ This is the start of the [ecoboard.live](ecoboard.live) documentation. I'm going
 
 ### How To Make Wheat Paste?
 - Here's a great video on how to make wheat paste in 2 minutes:
-- ![How to make Wheat Paste in 2 Minutes](https://www.youtube.com/watch?v=X3r_KtUZRtI#:~:text=Heat%201%20Cup%20of%20water,off%20heat%20and%20let%20cool)
+- [How to make Wheat Paste in 2 Minutes](https://www.youtube.com/watch?v=X3r_KtUZRtI#:~:text=Heat%201%20Cup%20of%20water,off%20heat%20and%20let%20cool)
 - Here's a quick way to make it:
   ![image](https://github.com/IanCavalluzzi/EcoBoard/assets/126832601/e43dce1c-e4e8-4a29-8f9a-a02dc656665c)
 - Optional: You can also add a small amount of vinegar to prevent mold growth.
