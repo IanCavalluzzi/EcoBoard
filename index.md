@@ -48,7 +48,8 @@ This is the start of the [ecoboard.live](ecoboard.live) documentation. I'm going
   -  Side Drainage Holes allow the water vapor to release while drying in an oven (Weeping Holes)
 - If you would like to see some examples of the molds, please view my [GitHub](https://github.com/IanCavalluzzi/EcoBoard), [Thingiverse](https://www.thingiverse.com/thing:6580828) page, or XYZAiden's [Thingyverse](https://www.thingiverse.com/thing:3912997) page.
 
-- 
+![image](https://github.com/IanCavalluzzi/EcoBoard/assets/126832601/a5144084-e9fe-42c3-91a3-03a0d05ab91a)
+
 
 
 
