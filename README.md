@@ -33,7 +33,7 @@ This is the start of the [ecoboard.live](ecoboard.live) documentation. I'm going
   ![image](https://github.com/IanCavalluzzi/EcoBoard/assets/126832601/e43dce1c-e4e8-4a29-8f9a-a02dc656665c)
 - Optional: You can also add a small amount of vinegar to prevent mold growth.
 
-## Process
+### Process
 - We will be using XYZAiden's method to press Cardboard MDF molds. Please view his [Instructables Page](https://www.instructables.com/id/Recycle-Cardboard-Into-Anything-With-3D-Printing/) 
 ### Design
 - Designing 3-Part molds for Cardboard MDF is similar to any other 3-part system.
@@ -43,7 +43,6 @@ This is the start of the [ecoboard.live](ecoboard.live) documentation. I'm going
   -  Side Drainage Holes allow the water vapor to release while drying in an oven (Weeping Holes)
 - If you would like to see some examples of the molds, please view my [GitHub](https://github.com/IanCavalluzzi/EcoBoard), [Thingiverse](https://www.thingiverse.com/thing:6580828) page, or XYZAiden's [Thingyverse](https://www.thingiverse.com/thing:3912997) page.
 
-- 
 
 
 
