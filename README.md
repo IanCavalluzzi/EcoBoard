@@ -35,6 +35,7 @@ This is the start of the [ecoboard.live](ecoboard.live) documentation. I'm going
 
 ### Process
 - We will be using XYZAiden's method to press Cardboard MDF molds. Please view his [Instructables Page](https://www.instructables.com/id/Recycle-Cardboard-Into-Anything-With-3D-Printing/) 
+
 ### Design
 - Designing 3-Part molds for Cardboard MDF is similar to any other 3-part system.
 - There are a few things to note:
