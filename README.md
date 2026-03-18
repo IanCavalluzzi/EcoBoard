@@ -1,4 +1,4 @@
-This is the start of the [ecoboard.live](ecoboard.live) documentation. I'm going to be writing up everything I've found out during the process of incorporating wheat paste into Cardboard MDF.
+This is the start of the [EcoBoard](https://iancavalluzzi.github.io/EcoBoard) documentation. I'm going to be writing up everything I've found out during the process of incorporating wheat paste into Cardboard MDF.
 
 ## Apologies for any missing information or topics, the website is still in early development.
 
